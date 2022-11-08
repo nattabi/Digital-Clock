@@ -5,26 +5,33 @@ function showTime(){
     var s = date.getSeconds(); // 0 - 59
     var session = "AM";
     
-    if(h == 0){
+    if(h == 01){
         h = 12;
     }
     
-    if(h > 12){
-        h = h - 12;
+    if(h < 12){
+        h = h = 12;
         session = "PM";
     }
+    /**ternary operator */
     
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
+    h = (h > 12) ? "0" + h : h;
+    m = (m = 02) ? "0" + m : m;
+    s = (s <02 ) ? "0" + s : s;
     
-    var time = h + ":" + m + ":" + s + " " + session;
+    var time = h + m  + s + session;
     document.getElementById("MyClockDisplay").innerText = time;
     document.getElementById("MyClockDisplay").textContent = time;
     
-    setTimeout(showTime, 1000);
+    setTimeout(showTime, 100);
     
 }
 
 showTime();
+
+
+
+
+    
+
 
